@@ -1,0 +1,70 @@
+<!doctype html>
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="myApp" ng-controller="mainController">
+
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Optimize mobile viewport -->
+    <title>Test Work</title>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- Wijmo CSS and script -->
+    <link href="wijmo/jquery-wijmo.css" rel="stylesheet" title="metro-jqueryui" type="text/css" />
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.8.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20132.8.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.8.min.js" type="text/javascript"></script>
+    <!-- Angular -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="http://cdn.wijmo.com/interop/angular.wijmo.3.20132.8.min.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <!-- load up our controller -->
+    <script src="js/services/theme.js"></script>
+    <!-- load our core service -->
+    <script src="js/core.js"></script>
+    <!-- load our main application -->
+    <!-- Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- Custom Css -->
+</head>
+<!-- SET THE CONTROLLER -->
+
+<body style="font-family:{{formData.font.face}} !important;font-size:{{formData.fontNo.size}}px">
+
+    <div class="container">
+        <form>
+            <table class= "navbar">
+                <tr>
+                    <td>Font Family :
+                        <select ng-model="formData.font" ng-options="font.face for font in fonts"></select>
+                    </td>
+                    <td>Font Size :
+                        <select ng-model="formData.fontNo" ng-options="fontNo.size for fontNo in fontSize"></select>
+                    </td>
+                    <td></td>
+                    <td>Themes :
+                        <select ng-model="selectedTheme" ng-change="activeTheme()">
+                            <option ng-repeat="th in Theme" value="{{th._id}}">{{ th.themeName }}</option>
+                        </select>
+                    </td>
+                    <td class="save">
+                        Save as Theme
+                        <input type="text" ng-model="formData.themeName">
+                        <input type="submit" value="save" ng-click="createTheme()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <wij-grid id="dataGrid" data="list" allow-editing="true">
+            <columns>
+                <column></column>
+                <column></column>
+                <column></column>
+                <column data-type="boolean"></column>
+            </columns>
+        </wij-grid>
+</body>
+
+</html>

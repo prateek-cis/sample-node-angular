@@ -1,0 +1,13 @@
+{
+  "name": "simple-test",
+  "version": "0.0.1",
+  "description": "Simple demo application.",
+  "main": "server.js",
+  "author": "Cis",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.1.1"
+  }
+}
